@@ -14,7 +14,8 @@ GPIO.set_button_handler(pin, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 50, function(x) {
   let topic = Cfg.get('device.id') + '/button_pressed';
   let message = JSON.stringify({
     total_ram: Sys.total_ram(),
-    free_ram: Sys.free_ram()
+    free_ram: Sys.free_ram(),
+    message: 'Velraja Nagarajan Message'
   });
   let ok = MQTT.pub(topic, message, message.length);
   print('Published:', ok ? 'yes' : 'no', 'topic:', topic, 'message:', message);
